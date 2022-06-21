@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 实战精品课
 
-## Getting Started
+基于 Next.js 的精品课电商 wap 网站
 
-First, run the development server:
+## 开发
+
+### 开发环境准备
+
+- Node > 10 (本项目使用 12.13.1)
+- global yarn
 
 ```bash
-npm run dev
-# or
+# 首次安装
+yarn install
+# 开发
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+浏览器打开 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 技术栈
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Next.js 9.5
+- React 16
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 测试
 
-## Learn More
+## 上线
 
-To learn more about Next.js, take a look at the following resources:
+## 目录结构
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 附录 & 参考
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [commit 规范](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
+- [语义化 version](https://semver.org/)
+- [express](https://www.expressjs.com.cn/)
+- [Node](https://nodejs.org/zh-cn/docs/guides/)
+- [Node Express 入门](https://developer.mozilla.org/zh-CN/docs/learn/Server-side/Express_Nodejs/Introduction)
+- [React Hook](https://github.com/dt-fe/weekly/blob/v2/079.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md)
+- [babel](https://www.babeljs.cn/docs/)
+- [flex 1](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html) , [flex 2](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
+- [react 异步渲染](https://www.youtube.com/watch?v=ZCuYPiUIONs)
+- [css pixels](http://www.alloyteam.com/2020/06/css-pixels/)
+- [flexible](https://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html)
+- [Next.js](https://nextjs.org/)
+- [CSS 像素](http://www.alloyteam.com/2020/06/css-pixels/)
+- [CSS Shapes](https://css-tricks.com/the-shapes-of-css/)
+- [CSS 划线](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)
+- [setTimeout 可视化延迟](https://bl.ocks.org/kenpenn/raw/92ebaa71696b4c4c3acd672b1bb3f49a/)
+- [event Loop 可视化](http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)

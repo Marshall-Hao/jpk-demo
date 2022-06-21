@@ -2,11 +2,15 @@
   "name": "jpk-demo",
   "version": "0.1.0",
   "private": true,
+  "author": "marshall",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf .next && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint:js": "eslint --fix .",
+    "lint:css": "stylelint '{components,pages,style}/**/*.css' --fix",
+    "version": "auto-changelog -p",
+    "format": "prettier --write './**/*.{js,jsx,css}' --config ./.prettierrc"
   },
   "dependencies": {
     "next": "12.1.6",
@@ -14,7 +18,21 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "auto-changelog": "^2.4.0",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all",
+    "Android >4.4.4",
+    "ios >=11"
+  ],
+  "auto-changelog": {
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false
   }
 }
