@@ -13,14 +13,25 @@
     "format": "prettier --write './**/*.{js,jsx,css}' --config ./.prettierrc"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.17.12",
     "auto-changelog": "^2.4.0",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.23.2",
     "eslint": "8.18.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2"
   },
   "browserslist": [
     ">0.2%",
@@ -34,5 +45,9 @@
     "template": "keepachangelog",
     "unreleased": true,
     "commitLimit": false
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "npm run lint:js",
+    "**/*.css": "npm run lint:css"
   }
 }
