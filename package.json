@@ -8,7 +8,7 @@
     "build": "rm -rf .next && next build",
     "start": "next start",
     "lint:js": "eslint --fix .",
-    "lint:css": "stylelint '{components,pages,style}/**/*.css' --fix",
+    "lint:css": "stylelint '{components,pages,style}/**/*.{css,scss}' --fix",
     "version": "auto-changelog -p",
     "format": "prettier --write './**/*.{js,jsx,css}' --config ./.prettierrc"
   },
@@ -41,9 +41,12 @@
     "prettier": "2.7.1",
     "prettier-eslint": "^15.0.1",
     "prettier-eslint-cli": "^6.0.1",
+    "sass": "^1.53.0",
     "stylelint": "^14.9.1",
+    "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-recess-order": "^3.0.0",
-    "stylelint-config-standard": "^26.0.0"
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-config-standard-scss": "^4.0.0"
   },
   "browserslist": [
     ">0.2%",
