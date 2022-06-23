@@ -6,6 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -162,6 +163,7 @@ button {
     transform: scaleY(0.34);
   }
 }
+
 
 .home-banners .banner-dots {
   position: absolute;
