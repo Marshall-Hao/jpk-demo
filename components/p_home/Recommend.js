@@ -5,7 +5,7 @@ export default function Recommend() {
   const data = []
   return (
     <section>
-      <SectionHeader />
+      <SectionHeader title="课程精选" subTitle="Course selection" />
       Recommend
       {data.map((item) => (
         <CourseCard key={item?.id} />

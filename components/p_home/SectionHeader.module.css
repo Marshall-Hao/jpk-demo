@@ -1,0 +1,41 @@
+.header {
+    height: 0.72rem;
+    margin: 0.68rem 0.32rem 0.4rem;
+    overflow: hidden; 
+
+    /* 清除 float side effect */
+    color: #afafaf;
+  
+    /* 也可以使用flex布局替换float布局 */
+  
+    /* display: flex;
+    justify-content: space-between; */
+  }
+  
+  .title {
+    float: left;
+    height: 0.64rem;
+    padding-left: 0.22rem;
+    border-left: 0.08rem solid #fb4a3e;
+  }
+  
+  .title h4 {
+    margin: 0 0 0.05rem;
+    font-size: 0.36rem;
+    line-height: 0.42rem;
+    color: #393939;
+  }
+  
+  .title h5 {
+    margin: 0;
+    font-size: 0.18rem;
+    line-height: 0.2rem;
+  }
+  
+  .header a {
+    display: block;
+    float: right;
+    font-size: 0.28rem;
+    line-height: 0.7rem;
+  }
+  
