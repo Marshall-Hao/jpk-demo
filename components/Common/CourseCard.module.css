@@ -77,6 +77,8 @@
   
   .teacherBox {
     position: relative;
+
+     /* 放同一条线 */
     display: inline-block;
     max-width: 0.88rem;
     margin-right: 0.36rem;
@@ -99,6 +101,8 @@
   
   .avatar {
     position: absolute;
+
+    /* 占据整个blocks */
     display: block;
     width: 100%;
     height: 100%;

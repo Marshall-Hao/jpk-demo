@@ -124,6 +124,7 @@ button {
   white-space: nowrap;
 }
 
+/* 真正的像素级1px */
 @media (min-resolution: 2dppx) {
   .border-b-1px::after {
     transform: scaleY(0.5);
