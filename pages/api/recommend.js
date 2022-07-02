@@ -127,6 +127,7 @@ export default (req, res) => {
       saleStartTime: +new Date() - 1000,
       saleType: 1,
       saleNum: 1959,
+      // * Date可以前面给数学逻辑符号进行隐式转换
       saleEndTime: +new Date() + 24 * 60 * 60 * 1000,
       price: 399,
       courseSaleTime: 1593792600000,

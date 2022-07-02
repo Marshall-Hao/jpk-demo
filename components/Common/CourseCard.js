@@ -1,10 +1,62 @@
-import { memo } from 'react'
+import { memo, useState } from 'react'
 import Link from 'next/link'
 import s from './CourseCard.module.css'
 import icTeacher from 'public/img/teacher1.png'
+import CountDown from './CountDown'
 
 function CourseCard({ data = {} }) {
-  const { courseTitle = '', id, categoryName, courseTime, lessonNum, teacherList } = data
+  const {
+    courseTitle = '',
+    id,
+    categoryName,
+    courseTime,
+    lessonNum,
+    teacherList,
+    saleType,
+    saleNum = 0,
+    price,
+    salePrice,
+    saleEndTime,
+  } = data
+
+  const [countDownFinished, setCountDownFinished] = useState(false)
+
+  const renderSimplePrice = (p) => {
+    return (
+      <span className={s.price}>
+        <span className={s.ico}>¥</span>
+        {p}
+      </span>
+    )
+  }
+
+  const renderPromotion = () => {
+    // * 促销
+    if (saleType === 1 && !countDownFinished) {
+      return (
+        <div className={s.promoCont}>
+          <div>
+            <span className={s.deleted}>
+              <span className={s.ico}>¥</span>
+              {price}
+            </span>
+            {renderSimplePrice(salePrice)}
+          </div>
+          <div className={s.desc}>
+            剩<CountDown end={saleEndTime} onEnd={() => setCountDownFinished(true)} />
+            &nbsp;恢复原价
+          </div>
+        </div>
+      )
+    }
+    // * 普通卡片
+    return (
+      <div className={s.promoCont}>
+        <div>{price === 0 ? <span>免费</span> : renderSimplePrice(price)}</div>
+        <div className={s.desc}>已有{saleNum}人购买</div>
+      </div>
+    )
+  }
   return (
     <Link href="/course/details/[id]" as={`/course/details/;${id}`}>
       <a className={`${s.card} border-b-1px`}>
@@ -36,6 +88,7 @@ function CourseCard({ data = {} }) {
                 })
               : null}
           </div>
+          {renderPromotion()}
         </div>
       </a>
     </Link>
