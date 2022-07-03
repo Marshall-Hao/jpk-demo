@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useRouter } from 'next/router'
+import { throttle } from 'lodash'
 import Suggest from '@/p_search/Suggest'
 import History from '@/p_search/History'
 import Result from '@/p_search/Result'
@@ -24,14 +25,18 @@ export default function Search({ kw }) {
   // * back to history
   const showHistory = () => setContType(TYPES.HISTORY)
   // * while typing keyword
-  const fetchSuggest = async () => {
-    // * switch the rendering content
-    if (contType !== TYPES.SUGGEST) setContType(TYPES.SUGGEST)
+  // ! 每次组件更新，此函数都会重新被声明，于是throttle都会重新注册一个新的timer，不会触发截流
+  const fetchSuggest = useMemo(() => {
+    return throttle(async (suggestWord) => {
+      console.log('fetch suggest', suggestWord)
+      // * switch the rendering content
+      if (contType !== TYPES.SUGGEST) setContType(TYPES.SUGGEST)
 
-    const res = await getSearchSuggest(inputValue)
+      const res = await getSearchSuggest(suggestWord)
 
-    setSuggestList(res)
-  }
+      setSuggestList(res)
+    }, 300)
+  }, [contType, setContType, setSuggestList])
   // * finalize search
   const submitSearch = (kw = '') => {
     setContType(TYPES.RESULT)
