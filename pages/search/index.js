@@ -7,6 +7,7 @@ import Result from '@/p_search/Result'
 import Input from '@/p_search/Input'
 import { getHotWord, getSearchResult, getSearchSuggest } from '../../core/api'
 import s from './search.module.css'
+import useLSState from 'core/hooks/useLSState'
 
 const TYPES = {
   HISTORY: 'history',
@@ -23,6 +24,8 @@ export default function Search({ kw, hotWord }) {
   const [contType, setContType] = useState(kw ? TYPES.RESULT : TYPES.HISTORY)
   const [inputValue, setInputValue] = useState(kw || '')
   const [suggestList, setSuggestList] = useState([])
+  const [history, setHistory] = useLSState('searchHistory', [])
+
   // * back to history
   const showHistory = () => setContType(TYPES.HISTORY)
   // * while typing keyword
@@ -41,6 +44,11 @@ export default function Search({ kw, hotWord }) {
   }, [contType, setContType, setSuggestList])
   // * finalize search
   const submitSearch = (kw = '') => {
+    // * push the new search result into the search history array
+    // * get rid of the duplicated ones
+    history.unshift(kw)
+
+    setHistory([...new Set(history)].slice(0, 6))
     setContType(TYPES.RESULT)
     // * 更新路由页面keyword,保持页面的状态
     router.replace({
@@ -54,7 +62,14 @@ export default function Search({ kw, hotWord }) {
   const renderContent = () => {
     switch (contType) {
       case TYPES.HISTORY:
-        return <History submitSearch={submitSearch} hotWord={hotWord} />
+        return (
+          <History
+            submitSearch={submitSearch}
+            hotWord={hotWord}
+            history={history}
+            deleteHistory={() => setHistory([])}
+          />
+        )
       case TYPES.SUGGEST:
         return <Suggest data={suggestList} submitSearch={submitSearch} />
       case TYPES.RESULT:

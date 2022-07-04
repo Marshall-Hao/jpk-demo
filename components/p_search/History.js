@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import s from './History.module.css'
 
-export default function History({ hotWord, submitSearch }) {
+export default function History({ hotWord, submitSearch, history, deleteHistory }) {
   const renderHotItem = (item, index) => {
     const text = item.title.slice(0, 6)
     if (item.type === 2) {
@@ -28,6 +28,28 @@ export default function History({ hotWord, submitSearch }) {
         </section>
       ) : null}
       {/* search history */}
+      <section className={s.container}>
+        <div className={`${s.historyHead} border-b-1px`}>
+          搜索历史
+          <button className={s.del} onClick={() => deleteHistory()}>
+            <img className={s.clean} src="/img/clean.png" alt="delete" />
+          </button>
+        </div>
+        <div className={s.content}>
+          {history && history.length
+            ? history.map((item, index) => {
+                return (
+                  <div
+                    className={`${s.list} border-b-1px`}
+                    key={`history-${index}`}
+                    onClick={() => submitSearch(item)}>
+                    {item}
+                  </div>
+                )
+              })
+            : null}
+        </div>
+      </section>
     </>
   )
 }
