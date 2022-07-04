@@ -50,6 +50,7 @@ export default function Search({ kw, hotWord }) {
 
     setHistory([...new Set(history)].slice(0, 6))
     setContType(TYPES.RESULT)
+    setInputValue(kw)
     // * 更新路由页面keyword,保持页面的状态
     router.replace({
       pathname: '/search',
