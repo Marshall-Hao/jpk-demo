@@ -6,6 +6,7 @@ import History from '@/p_search/History'
 import Result from '@/p_search/Result'
 import Input from '@/p_search/Input'
 import { getHotWord, getSearchResult, getSearchSuggest } from '../../core/api'
+import s from './search.module.css'
 
 const TYPES = {
   HISTORY: 'history',
@@ -26,6 +27,7 @@ export default function Search({ kw }) {
   const showHistory = () => setContType(TYPES.HISTORY)
   // * while typing keyword
   // ! 每次组件更新，此函数都会重新被声明，于是throttle都会重新注册一个新的timer，不会触发截流
+  // * https://medium.com/ichef/%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E8%A9%B2%E4%BD%BF%E7%94%A8-usememo-%E8%B7%9F-usecallback-a3c1cd0eb520
   const fetchSuggest = useMemo(() => {
     return throttle(async (suggestWord) => {
       console.log('fetch suggest', suggestWord)
@@ -70,7 +72,7 @@ export default function Search({ kw }) {
         submitSearch={submitSearch}
       />
       {/* content area */}
-      {renderContent()}
+      <div className={s.content}>{renderContent()}</div>
     </div>
   )
 }

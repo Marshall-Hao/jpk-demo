@@ -25,6 +25,19 @@
           ]
         }
       ],
-      "selector-class-pattern": "^[a-z][a-zA-Z0-9_-]+$"
+      "selector-class-pattern": "^[a-z][a-zA-Z0-9_-]+$",
+      "alpha-value-notation": "number",
+      "property-no-vendor-prefix": [
+        true,
+        {
+          "ignoreProperties": ["appearance"]
+        }
+      ],
+      "color-function-notation": null,
+      "selector-no-vendor-prefix": [
+        true,
+        {
+          "ignoreSelectors": ["::-webkit-input-placeholder", "/-moz-.*/","/-ms-.*/"]
+        }]
     }
   }

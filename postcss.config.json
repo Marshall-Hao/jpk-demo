@@ -1,6 +1,7 @@
 {
     "plugins": [
       "postcss-flexbugs-fixes",
+      "postcss-color-functional-notation",
       [
         "postcss-preset-env",
         {

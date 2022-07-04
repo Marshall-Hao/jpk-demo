@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import s from './Input.module.css'
 
 export default function Input({
   inputValue,
@@ -36,23 +37,38 @@ export default function Input({
       return
     }
     submitSearch(filteredVal)
-    //*  blur,手机端收起虚拟键盘
+    //*  获取blur状态,手机端收起虚拟键盘
     inputEl.current.blur()
     //  * 禁止回车表单自动提交
     return false
   }
+
+  const clearInput = () => {
+    fetchSuggest.cancel()
+    showHistory()
+    setInputValue('')
+    // * 获取focus状态 弹出模拟键盘
+    inputEl.current.focus()
+  }
   return (
     //  ! 让软键盘enter键显示搜索字样
-    <form action="">
-      <input
-        type="search"
-        ref={inputEl}
-        value={inputValue}
-        onChange={handleChange}
-        onKeyUp={handleKeyUp}
-      />
-      {/* 隐藏输入框，防止form自动提交 */}
-      <input type="text" style={{ display: 'none' }} />
-    </form>
+    <div className={s.container}>
+      <div className={`${s.formCont} border-b-1px ${inputValue ? '' : s.empty}`}>
+        <form action="">
+          <input
+            type="search"
+            ref={inputEl}
+            className={s.search}
+            value={inputValue}
+            placeholder="请输入搜索内容"
+            onChange={handleChange}
+            onKeyUp={handleKeyUp}
+          />
+          {/* 隐藏输入框，防止form自动提交 */}
+          <input type="text" style={{ display: 'none' }} />
+        </form>
+        {inputValue ? <button className={s.clean} onClick={clearInput}></button> : null}
+      </div>
+    </div>
   )
 }
