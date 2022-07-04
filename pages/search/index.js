@@ -17,7 +17,7 @@ const TYPES = {
 // * suggest
 
 // * result
-export default function Search({ kw }) {
+export default function Search({ kw, hotWord }) {
   const router = useRouter()
 
   const [contType, setContType] = useState(kw ? TYPES.RESULT : TYPES.HISTORY)
@@ -54,7 +54,7 @@ export default function Search({ kw }) {
   const renderContent = () => {
     switch (contType) {
       case TYPES.HISTORY:
-        return <History submitSearch={submitSearch} />
+        return <History submitSearch={submitSearch} hotWord={hotWord} />
       case TYPES.SUGGEST:
         return <Suggest data={suggestList} submitSearch={submitSearch} />
       case TYPES.RESULT:
@@ -90,7 +90,7 @@ export async function getServerSideProps(context) {
       getSearchResult(kw.trim()),
       getHotWord(),
     ])
-    console.log(resultRes)
+    // console.log(resultRes)
     hotWord = hotWordRes.value
     result = resultRes.value
   } else {

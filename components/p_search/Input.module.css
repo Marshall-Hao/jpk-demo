@@ -37,7 +37,7 @@
   font-weight: bold;
   color: #36404a;
   letter-spacing: 0;
-  background: rgb(0, 0, 0);
+  background: rgba(0,0,0,0);
 
   /* 取消边框默认样式 */
   border: none;
@@ -46,7 +46,7 @@
   
   /* 改变光标颜色 */
   caret-color: #6a7eff; /* stylelint-disable-line */
-  
+
   /* 取消高亮颜色 */
   -webkit-tap-highlight-color: transparent;
   ime-mode: active;

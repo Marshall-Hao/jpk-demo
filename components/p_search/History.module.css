@@ -1,0 +1,69 @@
+.container {
+  margin: 0 0.36rem;
+  overflow: hidden;
+  font-size: 0.3rem;
+  color: #36404a;
+}
+
+.hotHead,
+.historyHead {
+  position: relative;
+  padding: 0.18rem 0 0.06rem;
+  font-size: 0.34rem;
+  font-weight: bold;
+}
+
+.content {
+  padding-bottom: 0.54rem;
+  overflow: hidden;
+}
+
+.item {
+  box-sizing: border-box;
+  display: block;
+
+  /* 不会占据位置，浮动在周围 */
+  float: left;
+  height: 0.7rem;
+  padding: 0 0.42rem;
+  margin: 0.32rem 0.34rem 0 0;
+  overflow: hidden;
+  line-height: 0.7rem;
+  color: #ff4c38;
+  text-align: center;
+  text-overflow: ellipsis;
+  letter-spacing: 0;
+  white-space: nowrap;
+  background: #ffe2e0;
+  border-radius: 0.06rem;
+}
+
+/* 历史 */
+
+.historyHead {
+  padding: 0.18rem 0 0.38rem;
+}
+
+.clean {
+  width: 0.36rem;
+  height: 0.36rem;
+}
+
+.del {
+  position: absolute;
+  right: 0;
+}
+
+.del:focus {
+  outline: none;
+}
+
+.list {
+  padding: 0.33rem 0;
+}
+
+.list::after,
+.historyHead::after {
+  color: #ebebeb;
+  border-bottom: solid 1px #ebebeb;
+}
