@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { throttle } from 'lodash'
 import Suggest from '@/p_search/Suggest'
@@ -18,13 +18,16 @@ const TYPES = {
 // * suggest
 
 // * result
-export default function Search({ kw, hotWord }) {
+export default function Search({ kw, hotWord, result }) {
+  // * get getServerSideProps everytime
+  console.log(kw)
   const router = useRouter()
 
   const [contType, setContType] = useState(kw ? TYPES.RESULT : TYPES.HISTORY)
   const [inputValue, setInputValue] = useState(kw || '')
   const [suggestList, setSuggestList] = useState([])
   const [history, setHistory] = useLSState('searchHistory', [])
+  const [loading, setLoading] = useState(false)
 
   // * back to history
   const showHistory = () => setContType(TYPES.HISTORY)
@@ -52,6 +55,7 @@ export default function Search({ kw, hotWord }) {
     setContType(TYPES.RESULT)
     setInputValue(kw)
     // * 更新路由页面keyword,保持页面的状态
+    setLoading(true)
     router.replace({
       pathname: '/search',
       query: {
@@ -59,8 +63,15 @@ export default function Search({ kw, hotWord }) {
       },
     })
   }
+
+  // * 制作loading状态
+  useEffect(() => {
+    setLoading(false)
+  }, [result])
   // * rendering content
   const renderContent = () => {
+    if (loading) return <div className={s.loading}>加载中...</div>
+
     switch (contType) {
       case TYPES.HISTORY:
         return (
@@ -74,7 +85,7 @@ export default function Search({ kw, hotWord }) {
       case TYPES.SUGGEST:
         return <Suggest data={suggestList} submitSearch={submitSearch} />
       case TYPES.RESULT:
-        return <Result submitSearch={submitSearch} />
+        return <Result submitSearch={submitSearch} data={result} kw={kw} />
     }
   }
   return (
@@ -93,6 +104,7 @@ export default function Search({ kw, hotWord }) {
   )
 }
 
+// * it will returns JSON which will be used to render the page.
 export async function getServerSideProps(context) {
   const {
     query: { kw = '' },
