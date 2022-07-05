@@ -116,12 +116,7 @@ const AddressPicker = ({
     <div className={s.picker}>
       <div className={s.head}>
         请选择区域
-        <img
-          className={s.icClose}
-          src="/img/ic_close.png"
-          alt={''}
-          onClick={() => closePicker(false)}
-        />
+        <img className={s.icClose} src="/img/ic_close.png" alt={''} onClick={closePicker} />
       </div>
       {renderPickerHead()}
       {renderContent()}
