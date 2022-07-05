@@ -1,7 +1,9 @@
 import { useState, useCallback } from 'react'
+import Link from 'next/link'
 import CourseCard from '@/Common/CourseCard'
 import LoadMore from '@/Common/LoadMore'
 import { getSearchResult } from '../../core/api'
+import s from './Result.module.css'
 
 const OFFSET = 10
 
@@ -28,8 +30,8 @@ export default function Result({ data = [], kw = '' }) {
 
   if (data && data.length) {
     return (
-      <section>
-        <div>相关课程</div>
+      <section className={s.container}>
+        <div className={`${s.resultTitle} border-b-1px`}>相关课程</div>
         {result.list.map((item) => {
           return <CourseCard data={item} key={item.id} />
         })}
@@ -37,5 +39,13 @@ export default function Result({ data = [], kw = '' }) {
       </section>
     )
   }
-  return <div>result case</div>
+  return (
+    <section>
+      <img className={s.img} src="/img/errorImage.png" alt="no result" />
+      <div className={s.title}>Sorry!暂时没发现您想要找的课程</div>
+      <Link href="/">
+        <a className={`${s.back} border-all-1px`}>返回首页</a>
+      </Link>
+    </section>
+  )
 }

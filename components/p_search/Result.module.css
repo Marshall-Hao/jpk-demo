@@ -1,0 +1,61 @@
+.container {
+  margin-top: -0.18rem;
+}
+
+.resultTitle {
+  padding: 0.35rem 0 0.19rem;
+  margin: 0 0.36rem;
+  font-size: 0.3rem;
+  color: #aab0b6;
+}
+
+.resultTitle::after {
+  color: #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.img {
+  display: block;
+  width: 3.78rem;
+  height: 3.08rem;
+  margin: 1.92rem auto 0;
+}
+
+.title {
+  margin-top: 0.26rem;
+  font-size: 0.34rem;
+  color: #36404a;
+  text-align: center;
+  letter-spacing: -0.82px;
+}
+
+.back {
+  display: block;
+  width: 4.12rem;
+  margin: 1rem auto 0;
+  font-size: 0.32rem;
+  line-height: 0.96rem;
+  color: #36404a;
+  text-align: center;
+  letter-spacing: -0.82px;
+  background: #fff;
+  border: 1px solid #dadada;
+  border-radius: 0.09rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+.back:active {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 自定义圆角样式 */
+.back::before {
+  border-radius: 0.09rem;
+}
+
+@media (min-resolution: 2dppx) {
+  .back::before {
+    border: solid 1px #dadada;
+    border-radius: 0.18rem;
+  }
+}
