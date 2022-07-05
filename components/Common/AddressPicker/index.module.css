@@ -1,0 +1,79 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.picker {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 6.02rem;
+  background: #fff;
+}
+
+.head {
+  width: 100%;
+  height: 0.92rem;
+  font-size: 0.34rem;
+  font-weight: 400;
+  line-height: 0.92rem;
+  color: rgba(74, 74, 74, 1);
+  text-align: center;
+  background: rgba(246, 246, 246, 1);
+}
+
+.selectHead {
+  height: 0.81rem;
+  font-size: 0.32rem;
+  font-weight: 500;
+  line-height: 0.81rem;
+  color: rgba(74, 74, 74, 1);
+  text-align: left;
+  border: 1px solid rgba(235, 235, 235, 1);
+}
+
+.selectHead span {
+  margin-right: 0.4rem;
+}
+
+.selectHead span:first-child {
+  margin-left: 0.35rem;
+}
+
+.selectContent {
+  height: 4.28rem;
+  overflow: scroll;
+  text-align: left;
+}
+
+.selectContent p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.27rem 0.35rem;
+  font-size: 0.3rem;
+  font-weight: 400;
+  line-height: 0.41rem;
+  color: rgba(74, 74, 74, 1);
+}
+
+.icClose {
+  position: relative;
+  left: 2.16rem;
+  width: 0.38rem;
+  height: 0.38rem;
+}
+
+.icPitchOn {
+  width: 0.36rem;
+  height: 0.36rem;
+}
+
+.active {
+  color: #1ec864;
+}

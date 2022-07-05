@@ -1,0 +1,94 @@
+.container {
+    padding: 1.52rem 0.4rem 0;
+    text-align: center;
+  }
+  
+  .addressForm .label {
+    font-size: 0.3rem;
+    font-weight: 500;
+    line-height: 0.36rem;
+    color: rgba(54, 64, 74, 1);
+  }
+  
+  .addressForm {
+    text-align: left;
+  }
+  
+  .addressForm .input {
+    width: 6.7rem;
+    height: 0.54rem;
+    padding: 0.04rem 0 0.03rem;
+    margin: 0.32rem 0 0.52rem;
+    overflow: hidden;
+    font-size: 0.36rem;
+    font-weight: 600;
+    line-height: 0.5rem;
+    color: #36404a;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid #ededed;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    ime-mode: active;
+  }
+  
+  .addressForm .input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: rgba(197, 200, 204, 1);
+  }
+  
+  .addressForm .input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: rgba(197, 200, 204, 1);
+  }
+  
+  .addressForm .input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: rgba(197, 200, 204, 1);
+  }
+  
+  .addressForm .input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: rgba(197, 200, 204, 1);
+  }
+  
+  .btn,
+  .disableBtn {
+    width: 6.04rem;
+    height: 0.92rem;
+    font-size: 0.34rem;
+    font-weight: 500;
+    line-height: 0.48rem;
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 0.08rem;
+    outline: none;
+  }
+  
+  .btn {
+    background: #fb4a3e;
+  }
+  
+  .disableBtn {
+    background: #fb4a3e;
+    opacity: 0.5;
+  }
+  
+  .icon {
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-top: -0.06rem;
+    margin-right: 0.12rem;
+  }
+  
+  .defaultAddress {
+    margin-bottom: 0.68rem;
+    font-size: 0.26rem;
+    font-weight: 400;
+    line-height: 0.36rem;
+    color: rgba(148, 148, 148, 1);
+    text-align: left;
+  }
+  
